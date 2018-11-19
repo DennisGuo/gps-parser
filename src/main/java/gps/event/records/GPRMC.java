@@ -6,8 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -21,7 +19,6 @@ import org.slf4j.LoggerFactory;
  */
 public class GPRMC extends GpsInfoRecord {
 
-	private static Logger log = LoggerFactory.getLogger(GPRMC.class);
 
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat(
 			"ddMMyy HHmmss.SSS");
@@ -42,12 +39,12 @@ public class GPRMC extends GpsInfoRecord {
 	protected GPRMC(String[] fields) {
 		super(fields);
 
-		log.debug("GPRMC (Recommended Minimum)");
+		//log.debug("GPRMC (Recommended Minimum)");
 		try {
 			this.readingDate = dateFormat.parse(fields[9] + " " + fields[1]);
 		} catch (ParseException e) {
-			log.error("Couldn't parse reading date", e);
-			log.debug("Will assume _now_ as reading date");
+			//log.error("Couldn't parse reading date", e);
+			//log.debug("Will assume _now_ as reading date");
 			this.readingDate = new Date();
 		}
 		this.isValid = fields[2].equals("A");

@@ -7,16 +7,13 @@ package gps.event.records;
  * Released under the terms of Mozilla Public License 2.0
  */
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class GPGLL extends GpsInfoRecord {
 
-	private static Logger log = LoggerFactory.getLogger(GPGLL.class);
 
 	protected GPGLL(String[] fields) {
 		super(fields);
-		log.debug("GPGLL Geographic Latitude and Longitude");
+		//log.debug("GPGLL Geographic Latitude and Longitude");
 	}
 
 }

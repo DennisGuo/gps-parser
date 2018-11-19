@@ -1,7 +1,5 @@
 package gps.event.records;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.sql.Time;
 
@@ -14,7 +12,6 @@ import java.sql.Time;
 
 public class GPGGA extends GpsInfoRecord {
 
-	private static Logger log = LoggerFactory.getLogger(GPGGA.class);
 
 	public static final int QUALITY_INVALID = 0;
 	/**
@@ -47,7 +44,7 @@ public class GPGGA extends GpsInfoRecord {
 
 	protected GPGGA(String[] fields) {
 		super(fields);
-		log.debug("GPGGA Fix information (3d location and accuracy data)");
+		//log.debug("GPGGA Fix information (3d location and accuracy data)");
 		this.fixTime = new Time(Integer.parseInt(fields[1].substring(0, 2)),
 				Integer.parseInt(fields[1].substring(2, 4)),
 				Integer.parseInt(fields[1].substring(4, 6)));

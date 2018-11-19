@@ -1,7 +1,5 @@
 package gps.event.records;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -10,11 +8,10 @@ import org.slf4j.LoggerFactory;
  */
 public class GPVTG extends GpsInfoRecord {
 
-	private static Logger log = LoggerFactory.getLogger(GPVTG.class);
 
 	protected GPVTG(String[] fields) {
 		super(fields);
-		log.debug("GPVTG Vector track and speed over ground");
+		//log.debug("GPVTG Vector track and speed over ground");
 	}
 
 }

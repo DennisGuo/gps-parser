@@ -1,8 +1,5 @@
 package gps;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.Date;
 
 
@@ -20,8 +17,6 @@ import java.util.Date;
  */
 public class Satellite {
 
-	private static Logger log = LoggerFactory.getLogger(Satellite.class);
-
 	private int prn;
 	private int elevation;
 	private int azimuth;
@@ -31,7 +26,7 @@ public class Satellite {
 
 	/**
 	 * 
-	 * @param pnr
+	 * @param prn
 	 * @param elevation
 	 * @param azimuth
 	 * @param snr
@@ -40,7 +35,7 @@ public class Satellite {
 	 */
 	public Satellite(int prn, int elevation, int azimuth, int snr,
 			boolean inView) {
-		log.debug("Creating satellite " + prn);
+		//log.debug("Creating satellite " + prn);
 		this.prn = prn;
 		this.elevation = elevation;
 		this.azimuth = azimuth;
@@ -50,7 +45,7 @@ public class Satellite {
 	}
 
 	public void refresh(int elevation, int azimuth, int snr, boolean inView) {
-		log.debug("Updating satellite " + prn);
+		//log.debug("Updating satellite " + prn);
 		this.elevation = elevation;
 		this.azimuth = azimuth;
 		this.snr = snr;
@@ -70,7 +65,7 @@ public class Satellite {
 	 * set the satellite to not in view. Don't refresh last update date
 	 */
 	public void setNotInView() {
-		log.debug("Setting satellite " + prn + " as not in view");
+		//log.debug("Setting satellite " + prn + " as not in view");
 		this.inView = false;
 	}
 

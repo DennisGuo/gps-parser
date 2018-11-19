@@ -1,8 +1,6 @@
 package gps.event.records;
 
 import gps.Satellite;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,7 +18,6 @@ import java.util.Iterator;
  */
 public class GPGSV extends GpsInfoRecord {
 
-	private static Logger log = LoggerFactory.getLogger(GPGSV.class);
 
 	private int thisLine;
 	private int totalLines;
@@ -29,19 +26,18 @@ public class GPGSV extends GpsInfoRecord {
 
 	protected GPGSV(String[] fields, boolean endsWithComa) {
 		super(fields);
-		log.debug("GPGSV (Satellites in view)");
+		//log.debug("GPGSV (Satellites in view)");
 
 		this.thisLine = Integer.parseInt(fields[2]);
 		this.totalLines = Integer.parseInt(fields[1]);
 
-		log.debug("\tLine " + this.thisLine + " of " + this.totalLines);
+		//log.debug("\tLine " + this.thisLine + " of " + this.totalLines);
 
 		this.satellitesInView = Integer.parseInt(fields[3]);
-		log.debug("\tSatellites in view: " + this.satellitesInView);
+		//log.debug("\tSatellites in view: " + this.satellitesInView);
 		// how many satellites are in the line?
 		int numberOfSatellitesInLine = (fields.length + (endsWithComa ? 1 : 0) - 4) / 4;
-		log.debug("\tThis line includes " + numberOfSatellitesInLine
-				+ " satellites");
+		//log.debug("\tThis line includes " + numberOfSatellitesInLine+ " satellites");
 		Satellite satellite = null;
 		for (int i = 0; i < numberOfSatellitesInLine; i++) {
 			int prn = -1;
@@ -64,10 +60,10 @@ public class GPGSV extends GpsInfoRecord {
 				snr = fields[fieldIndex].length() == 0 ? -1 : Integer
 						.parseInt(fields[fieldIndex]);
 			}
-			log.debug("\tSatellite PRN: " + prn);
-			log.debug("\t\tElevation: " + elevation + "°");
-			log.debug("\t\tAzimuth: " + azimuth + "°");
-			log.debug("\t\tSNR: " + (snr == -1 ? "-" : (snr + " db")));
+			//log.debug("\tSatellite PRN: " + prn);
+			//log.debug("\t\tElevation: " + elevation + "°");
+			//log.debug("\t\tAzimuth: " + azimuth + "°");
+			//log.debug("\t\tSNR: " + (snr == -1 ? "-" : (snr + " db")));
 
 			/*
 			 * satellite is obviously <b>in view</b>, right? if it's a new
@@ -106,5 +102,7 @@ public class GPGSV extends GpsInfoRecord {
 		return fields[0] + " line " + this.thisLine + " of " + this.totalLines
 				+ ". Satellites in view (Total): " + this.satellitesInView;
 	}
+	
+	
 
 }

@@ -1,8 +1,5 @@
 package gps.event.records;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
  * All rights reserved
@@ -10,7 +7,6 @@ import org.slf4j.LoggerFactory;
  */
 public class GPGSA extends GpsInfoRecord {
 
-	private static Logger log = LoggerFactory.getLogger(GPGSA.class);
 
 	public static final int MODE_AUTOMATIC = 1;
 	public static final int MODE_MANUAL = 2;
@@ -26,7 +22,7 @@ public class GPGSA extends GpsInfoRecord {
 
 	protected GPGSA(String[] fields) {
 		super(fields);
-		log.debug("GPGSA (Dillution of precision / Active satellites)");
+		//log.debug("GPGSA (Dillution of precision / Active satellites)");
 
 		// mode
 		if (fields[1].equals("A")) {

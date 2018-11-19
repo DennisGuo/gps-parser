@@ -12,8 +12,6 @@ import gps.event.InvalidInputException;
 import gps.event.records.GPGSV;
 import gps.event.records.GPRMC;
 import gps.event.records.GpsInfoRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +23,6 @@ import java.util.Iterator;
 
 public class  GpsAnalyzer implements GpsEventListener {
 
-	private static Logger log = LoggerFactory.getLogger(GpsAnalyzer.class);
 
 	private final BufferedReader input;
 
@@ -69,7 +66,7 @@ public class  GpsAnalyzer implements GpsEventListener {
 	 * care about
 	 */
 	public void eventFound(GpsEvent event) {
-		log.debug("GpsAnalyzer is processing event " + event);
+		//log.debug("GpsAnalyzer is processing event " + event);
 		if (event instanceof GPGSV) {
 			GPGSV gpgsv = (GPGSV) event;
 			if (gpgsv.getThisLine() == 1) {
@@ -114,7 +111,7 @@ public class  GpsAnalyzer implements GpsEventListener {
 			if (gettingValidReadings) {
 				lastValidReading = new LatLongReading(gprmc.getLatitude(),
 						gprmc.getLongitude(), gprmc.getReadingDate());
-				log.debug("\t" + lastValidReading);
+				//log.debug("\t" + lastValidReading);
 			}
 		}
 	}
@@ -191,7 +188,7 @@ public class  GpsAnalyzer implements GpsEventListener {
 	/**
 	 * Register a listener to listen to events of a certain kind
 	 * 
-	 * @param abstractEventClass
+	 * @param eventClass
 	 *            If abstractEventClass is null, it means it will listen to
 	 *            every event. If a class is used, it has to be a class that
 	 *            extends {@link GpsEvent}
@@ -240,7 +237,7 @@ public class  GpsAnalyzer implements GpsEventListener {
 					}
 					analyzer.processInputLine(inputLine);
 				} catch (IOException e) {
-					log.error("Error reading from input stream", e);
+					//log.error("Error reading from input stream", e);
 				}
 			}
 		}

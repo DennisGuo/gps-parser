@@ -2,10 +2,10 @@ package gps;
 
 import java.io.FileReader;
 
-import gps.event.GPGLL;
-import gps.event.GPRMC;
 import gps.event.GpsEvent;
 import gps.event.GpsEventListener;
+import gps.event.records.GPGLL;
+import gps.event.records.GPRMC;
 
 /*
  * Will create one analyzer and will use two listeners. One listener will
