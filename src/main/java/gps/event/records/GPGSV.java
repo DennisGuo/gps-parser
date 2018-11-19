@@ -1,11 +1,12 @@
 package gps.event.records;
 
 import gps.Satellite;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.apache.log4j.Logger;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -19,7 +20,7 @@ import org.apache.log4j.Logger;
  */
 public class GPGSV extends GpsInfoRecord {
 
-	private static Logger log = Logger.getLogger(GPGSV.class);
+	private static Logger log = LoggerFactory.getLogger(GPGSV.class);
 
 	private int thisLine;
 	private int totalLines;

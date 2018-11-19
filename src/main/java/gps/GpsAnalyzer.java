@@ -12,6 +12,8 @@ import gps.event.InvalidInputException;
 import gps.event.records.GPGSV;
 import gps.event.records.GPRMC;
 import gps.event.records.GpsInfoRecord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,11 +23,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.apache.log4j.Logger;
+public class  GpsAnalyzer implements GpsEventListener {
 
-public class GpsAnalyzer implements GpsEventListener {
-
-	private static Logger log = Logger.getLogger(GpsAnalyzer.class);
+	private static Logger log = LoggerFactory.getLogger(GpsAnalyzer.class);
 
 	private final BufferedReader input;
 

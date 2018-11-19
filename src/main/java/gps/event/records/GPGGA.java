@@ -1,8 +1,10 @@
 package gps.event.records;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Time;
 
-import org.apache.log4j.Logger;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -12,7 +14,7 @@ import org.apache.log4j.Logger;
 
 public class GPGGA extends GpsInfoRecord {
 
-	private static Logger log = Logger.getLogger(GPGGA.class);
+	private static Logger log = LoggerFactory.getLogger(GPGGA.class);
 
 	public static final int QUALITY_INVALID = 0;
 	/**

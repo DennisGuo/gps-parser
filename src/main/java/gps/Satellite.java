@@ -1,8 +1,10 @@
 package gps;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Date;
 
-import org.apache.log4j.Logger;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -18,7 +20,7 @@ import org.apache.log4j.Logger;
  */
 public class Satellite {
 
-	private static Logger log = Logger.getLogger(Satellite.class);
+	private static Logger log = LoggerFactory.getLogger(Satellite.class);
 
 	private int prn;
 	private int elevation;

@@ -1,6 +1,7 @@
 package gps.event.records;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -9,7 +10,7 @@ import org.apache.log4j.Logger;
  */
 public class GPVTG extends GpsInfoRecord {
 
-	private static Logger log = Logger.getLogger(GPVTG.class);
+	private static Logger log = LoggerFactory.getLogger(GPVTG.class);
 
 	protected GPVTG(String[] fields) {
 		super(fields);

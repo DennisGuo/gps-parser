@@ -6,7 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -20,7 +21,7 @@ import org.apache.log4j.Logger;
  */
 public class GPRMC extends GpsInfoRecord {
 
-	private static Logger log = Logger.getLogger(GPRMC.class);
+	private static Logger log = LoggerFactory.getLogger(GPRMC.class);
 
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat(
 			"ddMMyy HHmmss.SSS");
@@ -33,7 +34,10 @@ public class GPRMC extends GpsInfoRecord {
 	private boolean isValid;
 	private double latitude;
 	private double longitude;
+	private double speed;
+	private double direction;
 	private Date readingDate;
+
 
 	protected GPRMC(String[] fields) {
 		super(fields);
@@ -66,6 +70,9 @@ public class GPRMC extends GpsInfoRecord {
 					this.longitude *= -1;
 				}
 			}
+			// speed and direction
+            this.speed = Double.parseDouble(fields[7]) * 1.852; // km/h
+            this.direction = Double.parseDouble(fields[8]); // 0 - 360
 		}
 	}
 
@@ -85,15 +92,27 @@ public class GPRMC extends GpsInfoRecord {
 		return readingDate;
 	}
 
-	public String toString() {
+    public double getSpeed() {
+        return speed;
+    }
+
+
+    public double getDirection() {
+        return direction;
+    }
+
+
+    public String toString() {
 		return fields[0]
 				+ " "
 				+ (isValid ? "Valid" : "Not Valid")
 				+ " at "
 				+ readingDate
 				+ (this.isValid ? (" Lat: " + Math.abs(latitude)
-						+ (latitude < 0 ? "S" : "N") + " Long: "
-						+ Math.abs(longitude) + (longitude < 0 ? "W" : "E"))
+						+ (latitude < 0 ? " S " : " N ") + " Long: "
+						+ Math.abs(longitude) + (longitude < 0 ? " W " : " E "))
+                        + " Speed: "+speed+"km/h "
+                        + " Direction: " + direction
 						: "");
 	}
 

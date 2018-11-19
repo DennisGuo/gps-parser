@@ -4,4 +4,8 @@
 bin/*
 *.class
 deploy/*
+out
 build.properties
+.idea
+.gradle
+*.iml

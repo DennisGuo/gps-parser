@@ -1,6 +1,7 @@
 package gps.event.records;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * Copyright 2012 Edmundo Carmona Antoranz
@@ -9,7 +10,7 @@ import org.apache.log4j.Logger;
  */
 public class GPGSA extends GpsInfoRecord {
 
-	private static Logger log = Logger.getLogger(GPGSA.class);
+	private static Logger log = LoggerFactory.getLogger(GPGSA.class);
 
 	public static final int MODE_AUTOMATIC = 1;
 	public static final int MODE_MANUAL = 2;
